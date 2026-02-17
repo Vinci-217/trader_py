@@ -22,6 +22,16 @@ from ai_quant.stock_strategies_ultimate import (
     MSFT_Ultimate, AMZN_Ultimate, GOOGL_Ultimate,
     META_Ultimate, AMAT_Ultimate
 )
+from ai_quant.stock_strategies_hf import (
+    NVDA_HF, TSLA_HF, AAPL_HF,
+    MSFT_HF, AMZN_HF, GOOGL_HF,
+    META_HF, AMAT_HF
+)
+from ai_quant.stock_strategies_volatile import (
+    NVDA_Volatile, TSLA_Volatile, AAPL_Volatile,
+    MSFT_Volatile, AMZN_Volatile, GOOGL_Volatile,
+    META_Volatile, AMAT_Volatile
+)
 from quant.data_get import get_us_stock
 
 
@@ -71,7 +81,7 @@ def run_backtest(
     start_date: str = None,
     end_date: str = None,
     initial_cash: float = INITIAL_CASH,
-    commission: float = 0.001,
+    commission: float = 0,  # 手续费默认为0
     strategy_name: str = "conservative"
 ) -> BacktestResult:
     """运行单支股票回测"""
@@ -132,6 +142,38 @@ def run_backtest(
         cerebro.addstrategy(META_Ultimate)
     elif strategy_name == "amat_ultimate":
         cerebro.addstrategy(AMAT_Ultimate)
+    elif strategy_name == "nvda_hf":
+        cerebro.addstrategy(NVDA_HF)
+    elif strategy_name == "tsla_hf":
+        cerebro.addstrategy(TSLA_HF)
+    elif strategy_name == "aapl_hf":
+        cerebro.addstrategy(AAPL_HF)
+    elif strategy_name == "msft_hf":
+        cerebro.addstrategy(MSFT_HF)
+    elif strategy_name == "amzn_hf":
+        cerebro.addstrategy(AMZN_HF)
+    elif strategy_name == "googl_hf":
+        cerebro.addstrategy(GOOGL_HF)
+    elif strategy_name == "meta_hf":
+        cerebro.addstrategy(META_HF)
+    elif strategy_name == "amat_hf":
+        cerebro.addstrategy(AMAT_HF)
+    elif strategy_name == "nvda_volatile":
+        cerebro.addstrategy(NVDA_Volatile)
+    elif strategy_name == "tsla_volatile":
+        cerebro.addstrategy(TSLA_Volatile)
+    elif strategy_name == "aapl_volatile":
+        cerebro.addstrategy(AAPL_Volatile)
+    elif strategy_name == "msft_volatile":
+        cerebro.addstrategy(MSFT_Volatile)
+    elif strategy_name == "amzn_volatile":
+        cerebro.addstrategy(AMZN_Volatile)
+    elif strategy_name == "googl_volatile":
+        cerebro.addstrategy(GOOGL_Volatile)
+    elif strategy_name == "meta_volatile":
+        cerebro.addstrategy(META_Volatile)
+    elif strategy_name == "amat_volatile":
+        cerebro.addstrategy(AMAT_Volatile)
     else:
         cerebro.addstrategy(FlexibleStrategy)
     
