@@ -63,7 +63,7 @@ def prepare_data(df):
     return df
 
 
-def load_stock_data(symbol, start_date, end_date, use_cache=True, cache_dir='data_cache'):
+def load_stock_data(symbol, start_date, end_date, use_cache=False, cache_dir='data_cache'):
     os.makedirs(cache_dir, exist_ok=True)
     cache_file = os.path.join(cache_dir, f"{symbol}_{start_date}_{end_date}.csv")
     
